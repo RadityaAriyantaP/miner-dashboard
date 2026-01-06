@@ -12,6 +12,17 @@ const manpowerDatabase = {
     name: "Raditya Ariyanta P",
     role: "Software Engineer",
     nrp: "25003724",
+    hireDate: "2021-03-15",
+    mcuStatus: "Aktif" as const,
+    keluarga: [
+      { nama: "Sri Wahyuni", hubungan: "Istri" },
+      { nama: "Aira Arya", hubungan: "Anak" },
+      { nama: "Budi Ariyanta", hubungan: "Ayah" },
+    ],
+    pendidikan: [
+      { jenjang: "S1 Teknik Informatika", tempat: "Institut Teknologi Bandung", tahun: "2021" },
+      { jenjang: "SMA IPA", tempat: "SMA Negeri 1 Jakarta", tahun: "2017" },
+    ],
     trainingSafety:{
       simper: "2025-12-12",
       permit: "2026-4-4",
@@ -54,6 +65,18 @@ const manpowerDatabase = {
     name: "Rizki Ramadhan",
     nrp: "25003724",
     role: "Group Leader",
+    hireDate: "2019-07-01",
+    mcuStatus: "Aktif" as const,
+    keluarga: [
+      { nama: "Dewi Sartika", hubungan: "Istri" },
+      { nama: "Rizky Ramadhan Jr", hubungan: "Anak" },
+      { nama: "H. Ahmad", hubungan: "Ayah" },
+      { nama: "Hj. Mariam", hubungan: "Ibu" },
+    ],
+    pendidikan: [
+      { jenjang: "S1 Teknik Pertambangan", tempat: "Universitas Indonesia", tahun: "2019" },
+      { jenjang: "SMA IPA", tempat: "SMA Negeri 1 Bandung", tahun: "2015" },
+    ],
     trainingSafety:{
       simper: "2025-12-12",
       permit: "2026-4-4",
@@ -86,6 +109,16 @@ const manpowerDatabase = {
     name: "Adrian Fathur",
     nrp: "25003723",
     role: "Software Engineer",
+    hireDate: "2022-01-10",
+    mcuStatus: "Tidak Aktif" as const,
+    keluarga: [
+      { nama: "Rina Melati", hubungan: "Istri" },
+      { nama: "Fathur Rizki", hubungan: "Anak" },
+    ],
+    pendidikan: [
+      { jenjang: "S1 Teknik Informatika", tempat: "Universitas Gadjah Mada", tahun: "2022" },
+      { jenjang: "SMA IPA", tempat: "SMA Negeri 1 Yogyakarta", tahun: "2018" },
+    ],
     trainingSafety:{
       simper: "2025-12-12",
       permit: "2026-4-4",
@@ -152,6 +185,10 @@ export default function ManpowerContent() {
             subAttributes={selectedManpower.atr.subAttributes}
             radarData={selectedManpower.attributes}
             sap={selectedManpower.sap}
+            hireDate={selectedManpower.hireDate}
+            mcuStatus={selectedManpower.mcuStatus}
+            keluarga={selectedManpower.keluarga}
+            pendidikan={selectedManpower.pendidikan}
           />
 
           {/* Right: Manpower Image */}
