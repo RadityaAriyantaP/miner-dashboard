@@ -14,6 +14,7 @@ const manpowerDatabase = {
     nrp: "25003724",
     hireDate: "2021-03-15",
     mcuStatus: "Aktif" as const,
+    jobsite: "BIB",
     keluarga: [
       { nama: "Sri Wahyuni", hubungan: "Istri" },
       { nama: "Aira Arya", hubungan: "Anak" },
@@ -66,6 +67,7 @@ const manpowerDatabase = {
     nrp: "25003724",
     role: "Group Leader",
     hireDate: "2019-07-01",
+    jobsite: "BA",
     mcuStatus: "Aktif" as const,
     keluarga: [
       { nama: "Dewi Sartika", hubungan: "Istri" },
@@ -110,6 +112,7 @@ const manpowerDatabase = {
     nrp: "25003723",
     role: "Software Engineer",
     hireDate: "2022-01-10",
+    jobsite: "PIK",
     mcuStatus: "Tidak Aktif" as const,
     keluarga: [
       { nama: "Rina Melati", hubungan: "Istri" },
@@ -189,6 +192,7 @@ export default function ManpowerContent() {
             mcuStatus={selectedManpower.mcuStatus}
             keluarga={selectedManpower.keluarga}
             pendidikan={selectedManpower.pendidikan}
+            jobsite={selectedManpower.jobsite}
           />
 
           {/* Right: Manpower Image */}

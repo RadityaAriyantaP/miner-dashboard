@@ -37,6 +37,7 @@ interface MiddlePanelProps {
   mcuStatus: 'Aktif' | 'Tidak Aktif';
   keluarga: Keluarga[];
   pendidikan: Pendidikan[];
+  jobsite: string;
 }
 
 type TabType = 'performance' | 'pendidikan' | 'keluarga';
@@ -63,7 +64,7 @@ function calculateLengthOfService(hireDate: string): string {
   }
 }
 
-export function MiddlePanel({ name, role, atrValue, atrColor, subAttributes, radarData, sap, hireDate, mcuStatus, keluarga, pendidikan }: Readonly<MiddlePanelProps>) {
+export function MiddlePanel({ name, role, atrValue, atrColor, subAttributes, radarData, sap, hireDate, mcuStatus, keluarga, pendidikan, jobsite }: Readonly<MiddlePanelProps>) {
   const [activeTab, setActiveTab] = useState<TabType>('performance');
   return (
     <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-cyan-500/30 relative overflow-hidden h-full flex flex-col">
@@ -80,12 +81,29 @@ export function MiddlePanel({ name, role, atrValue, atrColor, subAttributes, rad
         <div className="mb-6">
           <h3 className="text-sm text-cyan-300/70 uppercase tracking-wider mb-2">Manpower Info</h3>
           <div className="flex items-center gap-4 mb-4">
-            <div>
+            <div className="flex-1">
               <div className="text-2xl font-black text-cyan-400">{name}</div>
               <div className="text-sm text-gray-400 uppercase">{role}</div>
             </div>
+            <div className="flex flex-col items-end gap-1">
+              <img
+                src={`https://storage.googleapis.com/ppa-assets/sites/${jobsite}.png`}
+                alt={jobsite}
+                className="h-12 w-auto object-contain"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+            </div>
           </div>
           <div className="flex items-center gap-6 text-xs">
+            <div className="flex items-center gap-2">
+              <span className="text-cyan-400/60">Jobsite:</span>
+              <span className="text-xs font-semibold text-cyan-400/80 uppercase tracking-wider">
+                {jobsite}
+              </span>
+            </div>
             <div className="flex items-center gap-2">
               <span className="text-cyan-400/60">Hire:</span>
               <span className="text-white/80">{new Date(hireDate).toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
@@ -197,7 +215,7 @@ export function MiddlePanel({ name, role, atrValue, atrColor, subAttributes, rad
                   </div>
                 </div>
                 <div className="w-56">
-                  <h3 className="text-sm text-cyan-300/70 uppercase tracking-wider mb-4">SAP</h3>
+                  {sap.length > 0 && <h3 className="text-sm text-cyan-300/70 uppercase tracking-wider mb-4">SAP</h3>}
                   <div className="grid grid-cols-2 gap-2">
                     {sap.map((sub, index) => (
                       <div
